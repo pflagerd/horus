@@ -1,9 +1,3 @@
-#Horus development in Ubuntu
-
-[return to Home](../../README.md)
-
-If you are a developer and you want to modify the code, contribute, build packages, etc. you may follow this steps
-
 ## 1. Set up the environment
 
 ### Tools
@@ -15,55 +9,62 @@ Download the C/C++ edition of the Eclipse IDE (Version: 2020-09 (4.17.0)).
 
 Use Eclipse Marketplace to find and install PyDev (8.0.0.202009061309).
 
-#### Git version control
+#### git
 ```bash
-sudo zypper install git    # 2.26.2
+sudo zypper install git         # 2.26.2
 ```
+
+#### python
+
+```
+sudo zypper install python3	     # 3.6.10
+```
+
+#### avrdude
+
+```
+sudo zypper install avrdude      # 6.3  (include libftdi1)
+```
+
+
+
+
 
 ### Dependencies
 
-Following dependencies are included in deb package, but if you want to install it manually, they are:
-
 #### Python modules
 ```bash
-sudo apt-get install python-serial python-opengl python-pyglet python-numpy python-scipy python-matplotlib
+sudo zypper install -y python3-pyserial python3-opengl python3-pyglet python3-numpy python3-scipy python3-matplotlib python3-wxPython
 ```
 
-##### wxPython
 
-For older ubuntu versions
 
-```bash
-sudo apt-get install python-wxgtk2.8
-```
 
-For newer ubuntu versions
 
-```bash
-sudo apt-get install python-wxgtk3.0
-```
+
+
+
 
 #### Custom OpenCV
 
-*NOTE*: first try to remove previous versions of opencv:
-
 ```bash
-sudo apt-get remove python-opencv
-sudo apt-get autoremove
+sudo zypper remove python3-opencv  # first remove previous versions of opencv
 ```
 
-```bash
-sudo add-apt-repository ppa:bqlabs/horus
-sudo apt-get update
-sudo apt-get install python-opencv
+Now clone the custom version of it.
+
+```
+git clone git@github.com:bq/opencv.git
 ```
 
-#### AVRDUDE
-```bash
-sudo apt-get install avrdude  # include libftdi1
-```
+
+
+*** GOT HERE ***
+
+
 
 #### Figure out which Arduino ports are mapped to which Zum-board components.Video 4 Linux
+
 ```bash
 sudo apt-get install v4l-utils
 ```
@@ -133,7 +134,11 @@ Horus development comes with a script *package.sh*. This script generates a fina
 bash package.sh version  # Generate version file
 ```
 
-### GNU/Linux Ubuntu
+### GNU/Linux UbuntuFor older ubuntu versions
+￼
+sudo apt-get install python-wxgtk2.8
+For newer ubuntu versions
+
 ```bash
 bash package.sh debian     # Generate deb package
 bash package.sh debian -s  # Generate sources

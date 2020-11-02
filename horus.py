@@ -33,7 +33,6 @@ if not os.path.exists(resdir):
 
 resources.set_base_path(resdir)
 
-
 def main():
     from horus.gui import app
     app.HorusApp().MainLoop()
