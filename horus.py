@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
 
 from horus.util import resources
 
-resdir = os.path.join(os.path.dirname(__file__), "res")
+resdir = os.path.join(os.path.dirname(__file__), "resources")
 if not os.path.exists(resdir):
     resdir = "/usr/share/horus"
 
