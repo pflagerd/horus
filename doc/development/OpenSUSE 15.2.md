@@ -16,25 +16,32 @@ sudo zypper install git         # 2.26.2
 
 #### python
 
-```
-sudo zypper install python3	     # 3.6.10
+```bash
+sudo zypper install python2      # 2.7.17
 ```
 
 #### avrdude
 
-```
+```bash
 sudo zypper install avrdude      # 6.3  (include libftdi1)
 ```
 
-
+opencv-devel 
 
 
 
 ### Dependencies
 
 #### Python modules
+
 ```bash
-sudo zypper install -y python3-pyserial python3-opengl python3-pyglet python3-numpy python3-scipy python3-matplotlib python3-wxPython
+sudo zypper install -y python2-pyserial python2-opengl python2-pyglet python2-numpy python2-scipy python2-matplotlib python-wxWidgets-3_0 python2-opencv
+```
+
+
+
+```bash
+sudo zypper install -y python3-pyserial python3-opengl python3-pyglet python3-numpy python3-scipy python3-matplotlib # python3-wxWidgets-3_0
 ```
 
 
