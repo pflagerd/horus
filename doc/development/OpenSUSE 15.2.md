@@ -35,7 +35,7 @@ opencv-devel
 #### Python modules
 
 ```bash
-sudo zypper install -y python2-pyserial python2-opengl python2-pyglet python2-numpy python2-scipy python2-matplotlib python-wxWidgets-3_0 python2-opencv
+sudo zypper install -y python2-pyserial python2-opengl python2-pyglet python2-numpy python2-scipy python2-matplotlib python2-matplotlib-wx python-wxWidgets-3_0 python2-opencv
 ```
 
 
@@ -47,6 +47,12 @@ sudo zypper install -y python3-pyserial python3-opengl python3-pyglet python3-nu
 
 
 
+
+**![1604785862484](.md/OpenSUSE 15.2/1604785862484.png)* GOT HERE ***
+
+
+
+#### 
 
 
 
@@ -65,8 +71,6 @@ git clone git@github.com:bq/opencv.git
 ```
 
 
-
-*** GOT HERE ***
 
 
 
