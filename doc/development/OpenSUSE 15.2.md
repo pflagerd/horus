@@ -35,7 +35,7 @@ opencv-devel
 #### Python modules
 
 ```bash
-sudo zypper install -y python2-pyserial python2-opengl python2-pyglet python2-numpy python2-scipy python2-matplotlib python2-matplotlib-wx python-wxWidgets-3_0 python2-opencv
+sudo zypper install -y python2-pyserial python2-opengl python2-pyglet python2-numpy python2-scipy python2-matplotlib python2-matplotlib-wx python-wxWidgets-3_0 python2-opencv opencv-devel
 ```
 
 
