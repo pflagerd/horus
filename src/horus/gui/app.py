@@ -112,25 +112,26 @@ class HorusApp(wx.App):
         dlg.Destroy()
 
 if sys.is_darwin():  # Mac magic. Dragons live here. This sets full screen options.
-    try:
-        import ctypes
-        import objc
-        _objc = ctypes.PyDLL(objc._objc.__file__)
-
-        # PyObject *PyObjCObject_New(id objc_object, int flags, int retain)
-        _objc.PyObjCObject_New.restype = ctypes.py_object
-        _objc.PyObjCObject_New.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int]
-
-        def set_full_screen_capable(frame):
-            frameobj = _objc.PyObjCObject_New(frame.GetHandle(), 0, 1)
-
-            NSWindowCollectionBehaviorFullScreenPrimary = 1 << 7
-            window = frameobj.window()
-            newBehavior = window.collectionBehavior() | NSWindowCollectionBehaviorFullScreenPrimary
-            window.setCollectionBehavior_(newBehavior)
-    except:
-        def set_full_screen_capable(frame):
-            pass
+    print("This isn't a Mac, you know. DPP.")
+#     try:
+#         import ctypes
+#         import objc
+#         _objc = ctypes.PyDLL(objc._objc.__file__)
+# 
+#         # PyObject *PyObjCObject_New(id objc_object, int flags, int retain)
+#         _objc.PyObjCObject_New.restype = ctypes.py_object
+#         _objc.PyObjCObject_New.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int]
+# 
+#         def set_full_screen_capable(frame):
+#             frameobj = _objc.PyObjCObject_New(frame.GetHandle(), 0, 1)
+# 
+#             NSWindowCollectionBehaviorFullScreenPrimary = 1 << 7
+#             window = frameobj.window()
+#             newBehavior = window.collectionBehavior() | NSWindowCollectionBehaviorFullScreenPrimary
+#             window.setCollectionBehavior_(newBehavior)
+#     except:
+#         def set_full_screen_capable(frame):
+#             pass
 
 else:
     def set_full_screen_capable(frame):

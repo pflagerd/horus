@@ -1,9 +1,14 @@
 eclipse.preferences.version=1
 encoding//src/horus/__init__.py=utf-8
+encoding//src/horus/engine/driver/board.py=utf-8
+encoding//src/horus/engine/driver/camera.py=utf-8
+encoding//src/horus/engine/driver/driver.py=utf-8
 encoding//src/horus/gui/app.py=utf-8
+encoding//src/horus/gui/engine.py=utf-8
 encoding//src/horus/gui/main.py=utf-8
 encoding//src/horus/gui/splash.py=utf-8
 encoding//src/horus/gui/welcome.py=utf-8
+encoding//src/horus/gui/wizard/connection_page.py=utf-8
 encoding//src/horus/gui/wizard/main.py=utf-8
 encoding//src/horus/util/profile.py=utf-8
 encoding//src/horus/util/resources.py=utf-8

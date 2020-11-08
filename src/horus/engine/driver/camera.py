@@ -291,10 +291,10 @@ class Camera(object):
                     ctl.set_val(value)
                 elif system == 'Windows':
                     value = int(round(-math.log(value) / math.log(2)))
-                    self._capture.set(cv2.cv.CV_CAP_PROP_EXPOSURE, value)
+                    self._capture.set(cv2.CAP_PROP_EXPOSURE, value)
                 else:
                     value = int(value) / self._max_exposure
-                    ret = self._capture.set(cv2.cv.CV_CAP_PROP_EXPOSURE, value)
+                    ret = self._capture.set(cv2.CAP_PROP_EXPOSURE, value)
                     if system == 'Linux' and ret:
                         raise InputOutputError()
                 self._updating = False
