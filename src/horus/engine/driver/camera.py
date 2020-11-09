@@ -242,7 +242,7 @@ class Camera(object):
                 else:
                     value = int(value) / self._max_brightness
                     ret = self._capture.set(cv2.CAP_PROP_BRIGHTNESS, value)
-                    if system == 'Linux' and ret:
+                    if system == 'Linux' and not ret:
                         raise InputOutputError()
                 self._updating = False
 
@@ -257,7 +257,7 @@ class Camera(object):
                 else:
                     value = int(value) / self._max_contrast
                     ret = self._capture.set(cv2.CAP_PROP_CONTRAST, value)
-                    if system == 'Linux' and ret:
+                    if system == 'Linux' and not ret:
                         raise InputOutputError()
                 self._updating = False
 
@@ -272,7 +272,7 @@ class Camera(object):
                 else:
                     value = int(value) / self._max_saturation
                     ret = self._capture.set(cv2.CAP_PROP_SATURATION, value)
-                    if system == 'Linux' and ret:
+                    if system == 'Linux' and not ret:
                         raise InputOutputError()
                 self._updating = False
 
@@ -291,11 +291,14 @@ class Camera(object):
                 elif system == 'Windows':
                     value = int(round(-math.log(value) / math.log(2)))
                     self._capture.set(cv2.CAP_PROP_EXPOSURE, value)
-                else:
-                    value = int(value) / self._max_exposure
-                    ret = self._capture.set(cv2.CAP_PROP_EXPOSURE, value)
-                    if system == 'Linux' and ret:
-                        raise InputOutputError()
+# TODO: DPP: 201109032327Z: I commented this out because it never seems to succeed, and because returning an InputOutputError() when
+#                           self._capture.set(cv2.CAP_PROP_EXPOSURE, value) succeeds makes no sense to me
+#                           unless this was some trick to detect a camera problem by setting the value to something bogus and seeing
+#                           the (unexpected) success of the function.  Even then, that deserves a comment/explanation.
+#                else:
+#                     ret = self._capture.set(cv2.CAP_PROP_EXPOSURE, value)
+#                     if system == 'Linux' and ret:
+#                         raise InputOutputError()
                 self._updating = False
 
     def set_luminosity(self, value):
@@ -402,10 +405,10 @@ class Camera(object):
                 for i in xrange(count):
                     baselist.append(str(i))
                 self._video_list = baselist
-        elif system == 'Darwin':
-            for device in uvc.mac.Camera_List():
-                baselist.append(str(device.src_id))
-            self._video_list = baselist
+#         elif system == 'Darwin':
+#             for device in uvc.mac.Camera_List():
+#                 baselist.append(str(device.src_id))
+#             self._video_list = baselist
         else:
             for device in ['/dev/video*']:
                 baselist = baselist + glob.glob(device)
